@@ -104,7 +104,11 @@ struct HistoryView: View {
     
     private func confirmSelection(item: ClipboardItem) {
         copyToPasteboard(item: item)
-        HistoryWindowManager.shared.dismissAndPaste()
+        if item.type == "text", let content = item.content {
+            HistoryWindowManager.shared.dismissAndType(content)
+        } else {
+            HistoryWindowManager.shared.dismissAndPaste()
+        }
     }
     
     private func copyToPasteboard(item: ClipboardItem) {

@@ -115,6 +115,45 @@ class HistoryWindowManager: NSObject, NSWindowDelegate {
         }
     }
 
+    func dismissAndType(_ text: String) {
+        hidePanel()
+        activatePreviousApp()
+
+        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self else { return }
+            guard self.ensureAccessibilityPermission() else { return }
+            self.typeText(text)
+        }
+    }
+
+    private func ensureAccessibilityPermission() -> Bool {
+        if AXIsProcessTrusted() {
+            return true
+        }
+
+        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
+        _ = AXIsProcessTrustedWithOptions(options)
+        return false
+    }
+
+    private func typeText(_ text: String) {
+        guard let source = CGEventSource(stateID: .hidSystemState) else { return }
+
+        for scalar in text.unicodeScalars {
+            let utf16Units = Array(String(scalar).utf16)
+            guard let keyDown = CGEvent(keyboardEventSource: source, virtualKey: 0, keyDown: true),
+                  let keyUp = CGEvent(keyboardEventSource: source, virtualKey: 0, keyDown: false) else {
+                continue
+            }
+
+            keyDown.keyboardSetUnicodeString(stringLength: utf16Units.count, unicodeString: utf16Units)
+            keyUp.keyboardSetUnicodeString(stringLength: utf16Units.count, unicodeString: utf16Units)
+            keyDown.post(tap: .cghidEventTap)
+            keyUp.post(tap: .cghidEventTap)
+            usleep(1500)
+        }
+    }
+
     private func activatePreviousApp() {
         if let prevApp = previousApp {
             prevApp.activate()

@@ -41,7 +41,7 @@ struct wcsfmApp: App {
             
             // Check Accessibility permissions on startup
             if !AXIsProcessTrusted() {
-                print("Accessibility permissions missing. Auto-paste will not work.")
+                print("Accessibility permissions missing. Auto-typing will not work.")
                 let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true]
                 AXIsProcessTrustedWithOptions(options as CFDictionary)
             }

@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import KeyboardShortcuts
+import ApplicationServices
 
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
@@ -11,6 +12,7 @@ struct SettingsView: View {
     @AppStorage("keepImages") private var keepImages: Bool = true
     
     @State private var showingClearConfirmation = false
+    @State private var accessibilityGranted: Bool = AXIsProcessTrusted()
 
     var body: some View {
         TabView {
@@ -21,6 +23,31 @@ struct SettingsView: View {
                         Spacer()
                         KeyboardShortcuts.Recorder(for: .toggleHistoryWindow)
                     }
+                }
+
+                Section {
+                    HStack(spacing: 10) {
+                        Image(systemName: accessibilityGranted ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+                            .foregroundColor(accessibilityGranted ? .green : .orange)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Auto-Type Permission")
+                                .font(.body)
+                            Text(accessibilityGranted
+                                 ? "Accessibility access granted."
+                                 : "Required to auto-type selected text.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        if !accessibilityGranted {
+                            Button("Grant Access") {
+                                requestAccessibility()
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .controlSize(.small)
+                        }
+                    }
+                    .padding(.vertical, 2)
                 }
                 
                 Section {
@@ -52,6 +79,9 @@ struct SettingsView: View {
             .tabItem {
                 Label("General", systemImage: "gearshape")
             }
+            .onAppear {
+                accessibilityGranted = AXIsProcessTrusted()
+            }
             
             Form {
                 Section {
@@ -63,7 +93,25 @@ struct SettingsView: View {
                 Label("Advanced", systemImage: "slider.horizontal.3")
             }
         }
-        .frame(width: 450, height: 260)
+        .frame(width: 450, height: 310)
+    }
+
+    private func requestAccessibility() {
+        // Try the system prompt first
+        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
+        _ = AXIsProcessTrustedWithOptions(options)
+
+        // Also open System Settings directly to Accessibility (works on macOS 13+)
+        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility") {
+            NSWorkspace.shared.open(url)
+        }
+
+        // Poll for status updates after user returns
+        for delay in [1.0, 3.0, 6.0, 10.0] {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                accessibilityGranted = AXIsProcessTrusted()
+            }
+        }
     }
     
     private func clearHistory() {

@@ -38,7 +38,7 @@ open wcsfm.xcodeproj
 1. **Launch the app** — It runs in the menu bar
 2. **Open history** — Press `⌘⌥V` (customizable in Settings)
 3. **Navigate** — Use arrow keys (↑/↓) to browse, type to search
-4. **Select** — Press Enter to copy and auto-paste to the active app, or click an item
+4. **Select** — Press Enter to copy and auto-type text into the active app (images are auto-pasted), or click an item
 5. **Dismiss** — Press Escape or click outside the window
 
 ## Settings
@@ -51,9 +51,8 @@ Access settings from the menu bar app:
 
 ## Accessibility Permissions
 
-On first launch, the app will request Accessibility permissions. This is required for the auto-paste feature (automatically pasting to the previously active application when you select an item).
+On first launch, the app will request Accessibility permissions. This is required for auto-typing/auto-paste when sending a selected history item to the previously active application.
 
 To manually grant permissions:
-1. Open **System Preferences** → **Security & Privacy** → **Accessibility**
+1. Open **System Settings** → **Privacy & Security** → **Accessibility**
 2. Add `wcsfm` to the allowed apps list
-
