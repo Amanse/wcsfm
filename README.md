@@ -2,19 +2,12 @@
 
 **Windows Clipboard Subsystem For MacOS** — A lightweight clipboard manager for macOS.
 
-> A playful nod to WSL (Windows Subsystem for Linux), but for clipboard management on macOS.
-
 ## Features
 
 - **Global Hotkey Access** — Press `⌘⌥V` to instantly access your clipboard history
 - **Search History** — Quickly find past clipboard items with live search
 - **Image Support** — Store and manage both text and images
 - **Configurable Retention** — Keep history for 1 day, 1 week, 1 month, or forever
-- **Native macOS UI** — Seamless integration with macOS design language
-  - Vibrancy/glass morphism effects
-  - Rounded floating panel
-  - Auto-focus on activation
-  - Arrow key navigation
 - **Menu Bar Integration** — Lightweight menu bar app that doesn't clutter your dock
 
 ## Installation
@@ -27,7 +20,7 @@
 ### Build & Run
 
 ```bash
-git clone <repository-url>
+git clone github.com/amanse/wcsfm
 cd wcsfm
 xcodebuild -scheme wcsfm -configuration Release
 ```
@@ -56,20 +49,6 @@ Access settings from the menu bar app:
 - **Clear on Reboot** — Optionally wipe history on system restart
 - **Save Images** — Enable/disable image history
 
-## Privacy
-
-- All clipboard data is stored locally in SwiftData
-- No network requests or data collection
-- History can be cleared anytime from Settings
-
-## Technical Details
-
-- Built with SwiftUI and SwiftData
-- Uses `NSPanel` for floating window behavior
-- Custom search field with keyboard event interception
-- CGEventTap for auto-paste functionality
-- Requires Accessibility permissions for auto-paste
-
 ## Accessibility Permissions
 
 On first launch, the app will request Accessibility permissions. This is required for the auto-paste feature (automatically pasting to the previously active application when you select an item).
@@ -78,10 +57,3 @@ To manually grant permissions:
 1. Open **System Preferences** → **Security & Privacy** → **Accessibility**
 2. Add `wcsfm` to the allowed apps list
 
-## License
-
-[Choose your license here]
-
----
-
-Made with ❤️ for clipboard enthusiasts
