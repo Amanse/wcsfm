@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		Z354ai9JkqB5G5RFJwJNNAxYahU=
+		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		dGM53w1lV7B1jEAXBmRMy0vf4ys=
+		</data>
 		<key>Resources/KeyboardShortcuts_KeyboardShortcuts.bundle/Contents/Info.plist</key>
 		<data>
 		w7yiDXertihMa+rAb7x2HeOYjeY=
@@ -155,6 +163,20 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4g7h0qX47QCbD4Umq/LNq/Xkul+T7E86XJ9dTPTlWYs=
+			</data>
+		</dict>
+		<key>Resources/Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lsU1nZdY5m4yvFX4VjYBWSlcxWtks12wGKAMK3cqR0Y=
+			</data>
+		</dict>
 		<key>Resources/KeyboardShortcuts_KeyboardShortcuts.bundle/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
