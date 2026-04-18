@@ -1,0 +1,32 @@
+{
+  "source": "/Users/me/Documents/Projects/swift/wcsfm/wcsfm/wcsfmApp.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Settings...",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quit wcsfm",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "wcsfm",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 54
+        }
+      }
+    ]
+  },
+  "version": 1
+}

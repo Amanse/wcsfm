@@ -10,6 +10,8 @@ struct HistoryView: View {
     
     @State private var searchText: String = ""
     @State private var selection: UUID?
+    @State private var scrollProxy: ScrollViewProxy?
+    @State private var lastSelectionIndex: Int = 0
 
     var filteredItems: [ClipboardItem] {
         if searchText.isEmpty {
@@ -53,18 +55,31 @@ struct HistoryView: View {
                     .foregroundColor(.secondary)
                 Spacer()
             } else {
-                List(selection: $selection) {
-                    ForEach(filteredItems) { item in
-                        HistoryItemRow(item: item)
-                            .tag(item.id)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                confirmSelection(item: item)
-                            }
-                            .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+                ScrollViewReader { proxy in
+                    List(selection: $selection) {
+                        ForEach(filteredItems) { item in
+                            HistoryItemRow(item: item)
+                                .tag(item.id)
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    confirmSelection(item: item)
+                                }
+                                .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+                        }
+                    }
+                    .listStyle(PlainListStyle())
+                    .onAppear {
+                        scrollProxy = proxy
+                    }
+                    .onChange(of: selection) { _ in
+                        if let id = selection,
+                           let newIndex = filteredItems.firstIndex(where: { $0.id == id }) {
+                            let anchor: UnitPoint = newIndex >= lastSelectionIndex ? .bottom : .top
+                            proxy.scrollTo(id, anchor: anchor)
+                            lastSelectionIndex = newIndex
+                        }
                     }
                 }
-                .listStyle(PlainListStyle())
             }
         }
         .frame(width: 400, height: 500)

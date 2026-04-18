@@ -1,0 +1,12 @@
+{
+  "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "abi-baseline-json" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts.abi.json",
+    "const-values" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts-primary.swiftconstvalues",
+    "dependencies" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts-primary.d",
+    "diagnostics" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts-primary.dia",
+    "objc-header" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts-Swift.h",
+    "swiftdoc" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts.swiftdoc",
+    "swiftmodule" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts.swiftmodule",
+    "swiftsourceinfo" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/KeyboardShortcuts.build/Release/KeyboardShortcuts.build/Objects-normal/arm64/KeyboardShortcuts.swiftsourceinfo"
+  }
+}

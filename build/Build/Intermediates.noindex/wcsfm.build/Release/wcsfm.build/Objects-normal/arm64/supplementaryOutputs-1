@@ -1,0 +1,12 @@
+{
+  "/Users/me/Documents/Projects/swift/wcsfm/wcsfm/ClipboardItem.swift" : {
+    "abi-baseline-json" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm.abi.json",
+    "const-values" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm-primary.swiftconstvalues",
+    "dependencies" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm-primary.d",
+    "diagnostics" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm-primary.dia",
+    "objc-header" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm-Swift.h",
+    "swiftdoc" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm.swiftdoc",
+    "swiftmodule" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm.swiftmodule",
+    "swiftsourceinfo" : "/Users/me/Documents/Projects/swift/wcsfm/build/Build/Intermediates.noindex/wcsfm.build/Release/wcsfm.build/Objects-normal/arm64/wcsfm.swiftsourceinfo"
+  }
+}

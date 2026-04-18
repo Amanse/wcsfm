@@ -1,0 +1,24 @@
+{
+  "source": "/Users/me/Documents/Projects/swift/wcsfm/wcsfm/HistoryView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "No items in history",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "No matches found",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 54
+        }
+      }
+    ]
+  },
+  "version": 1
+}
