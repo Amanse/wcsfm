@@ -66,12 +66,15 @@ struct SettingsView: View {
                         showingClearConfirmation = true
                     }
                     .foregroundColor(.red)
-                    .confirmationDialog("Are you sure?", isPresented: $showingClearConfirmation) {
-                        Button("Clear Now", role: .destructive) {
+                    .confirmationDialog("Clear History", isPresented: $showingClearConfirmation) {
+                        Button("Clear All (Including Pinned)", role: .destructive) {
                             clearHistory()
                         }
+                        Button("Clear Unpinned Only", role: .destructive) {
+                            clearHistoryKeepPinned()
+                        }
                     } message: {
-                        Text("This will permanently delete all clipboard history.")
+                        Text("Choose how to clear clipboard history.")
                     }
                 }
             }
@@ -117,6 +120,18 @@ struct SettingsView: View {
     private func clearHistory() {
         do {
             try modelContext.delete(model: ClipboardItem.self)
+            try modelContext.save()
+        } catch {
+            print("Failed to clear history: \(error)")
+        }
+    }
+
+    private func clearHistoryKeepPinned() {
+        let toDelete = items.filter { !$0.isPinned }
+        for item in toDelete {
+            modelContext.delete(item)
+        }
+        do {
             try modelContext.save()
         } catch {
             print("Failed to clear history: \(error)")
